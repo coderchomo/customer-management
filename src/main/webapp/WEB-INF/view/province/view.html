@@ -6,6 +6,18 @@
 </head>
 <body>
 <h1>View Province: <span th:text="${province.name}"></span></h1>
-<a href=""></a>
+<a href="/provinces">Province List</a>
+<table border="1">
+    <tr>
+        <td>FirstName:</td>
+        <td>LastName:</td>
+    </tr>
+    <th:block th:each="c:${customers}">
+        <tr>
+            <td th:text="${c.firstName}"></td>
+            <td th:text="${c.lastName}"></td>
+        </tr>
+    </th:block>
+</table>
 </body>
 </html>

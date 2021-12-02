@@ -70,10 +70,10 @@ public class CustomerController {
     }
     @GetMapping("/delete-customer/{id}")
     public ModelAndView showDeleteForm(@PathVariable Long id){
-        Optional    <Customer> customer=customerService.findById(id);
-        if(customer!=null){
+        Optional<Customer> customer=customerService.findById(id);
+        if(customer.isPresent()){
             ModelAndView modelAndView=new ModelAndView("/customer/delete");
-            modelAndView.addObject("customer",customer);
+            modelAndView.addObject("customer",customer.get());
             return modelAndView;
         }else{
             ModelAndView modelAndView=new ModelAndView("/error.404");
